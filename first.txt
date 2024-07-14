@@ -1,1 +1,2 @@
 Hello, this is the content of first.txt
+This line is from the main branch
