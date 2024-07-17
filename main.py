@@ -4,7 +4,6 @@ import random
 
 spark = SparkSession.builder.appName("CreateSyntheticPurchaseData").getOrCreate()
 
-# Самостоятельно определяете названия товаров (мин. 5)
 products = ["товар1", "товар2", "товар3", "товар4", "товар5"]
 
 def generate_random_data(products, num_rows):
@@ -26,5 +25,4 @@ data = generate_random_data(products, num_rows)
 
 df = spark.createDataFrame(data, columns)
 
-# Сохранение DataFrame в один файл
 df.coalesce(1).write.mode("overwrite").csv("output_data.csv", header=True)
